@@ -40,6 +40,19 @@
             this.threeButton = new System.Windows.Forms.Button();
             this.zeroButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
+            this.metricButton = new System.Windows.Forms.RadioButton();
+            this.ImperialButton = new System.Windows.Forms.RadioButton();
+            this.myHeightLabel = new System.Windows.Forms.Label();
+            this.MyWeightLabel = new System.Windows.Forms.Label();
+            this.heightUnitLabel = new System.Windows.Forms.TextBox();
+            this.weightUnitLabel = new System.Windows.Forms.TextBox();
+            this.resultLabel = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.calculateBMIButton = new System.Windows.Forms.Button();
+            this.heightText = new System.Windows.Forms.TextBox();
+            this.weightText = new System.Windows.Forms.TextBox();
+            this.conditionTextBox = new System.Windows.Forms.TextBox();
+            this.conditionLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -193,10 +206,146 @@
             this.clearButton.Text = "CLEAR";
             this.clearButton.UseVisualStyleBackColor = false;
             // 
+            // metricButton
+            // 
+            this.metricButton.AutoSize = true;
+            this.metricButton.Location = new System.Drawing.Point(15, 13);
+            this.metricButton.Name = "metricButton";
+            this.metricButton.Size = new System.Drawing.Size(106, 35);
+            this.metricButton.TabIndex = 1;
+            this.metricButton.TabStop = true;
+            this.metricButton.Text = "Metric";
+            this.metricButton.UseVisualStyleBackColor = true;
+            // 
+            // ImperialButton
+            // 
+            this.ImperialButton.AutoSize = true;
+            this.ImperialButton.Location = new System.Drawing.Point(164, 13);
+            this.ImperialButton.Name = "ImperialButton";
+            this.ImperialButton.Size = new System.Drawing.Size(128, 35);
+            this.ImperialButton.TabIndex = 2;
+            this.ImperialButton.TabStop = true;
+            this.ImperialButton.Text = "Imperial";
+            this.ImperialButton.UseVisualStyleBackColor = true;
+            // 
+            // myHeightLabel
+            // 
+            this.myHeightLabel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.myHeightLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.myHeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.myHeightLabel.Location = new System.Drawing.Point(116, 56);
+            this.myHeightLabel.Name = "myHeightLabel";
+            this.myHeightLabel.Size = new System.Drawing.Size(109, 31);
+            this.myHeightLabel.TabIndex = 3;
+            this.myHeightLabel.Text = "My Height";
+            // 
+            // MyWeightLabel
+            // 
+            this.MyWeightLabel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.MyWeightLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MyWeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MyWeightLabel.Location = new System.Drawing.Point(116, 100);
+            this.MyWeightLabel.Name = "MyWeightLabel";
+            this.MyWeightLabel.Size = new System.Drawing.Size(109, 30);
+            this.MyWeightLabel.TabIndex = 4;
+            this.MyWeightLabel.Text = "My Weight";
+            // 
+            // heightUnitLabel
+            // 
+            this.heightUnitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.heightUnitLabel.Location = new System.Drawing.Point(232, 54);
+            this.heightUnitLabel.Name = "heightUnitLabel";
+            this.heightUnitLabel.Size = new System.Drawing.Size(63, 30);
+            this.heightUnitLabel.TabIndex = 5;
+            // 
+            // weightUnitLabel
+            // 
+            this.weightUnitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weightUnitLabel.Location = new System.Drawing.Point(232, 100);
+            this.weightUnitLabel.Name = "weightUnitLabel";
+            this.weightUnitLabel.Size = new System.Drawing.Size(63, 30);
+            this.weightUnitLabel.TabIndex = 6;
+            // 
+            // resultLabel
+            // 
+            this.resultLabel.BackColor = System.Drawing.Color.White;
+            this.resultLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.resultLabel.Location = new System.Drawing.Point(15, 133);
+            this.resultLabel.Name = "resultLabel";
+            this.resultLabel.Size = new System.Drawing.Size(280, 36);
+            this.resultLabel.TabIndex = 7;
+            this.resultLabel.Text = "0";
+            this.resultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(15, 172);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(280, 23);
+            this.progressBar.TabIndex = 8;
+            // 
+            // calculateBMIButton
+            // 
+            this.calculateBMIButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calculateBMIButton.Location = new System.Drawing.Point(57, 244);
+            this.calculateBMIButton.Name = "calculateBMIButton";
+            this.calculateBMIButton.Size = new System.Drawing.Size(185, 35);
+            this.calculateBMIButton.TabIndex = 9;
+            this.calculateBMIButton.Text = "Calculate BMI";
+            this.calculateBMIButton.UseVisualStyleBackColor = true;
+            // 
+            // heightText
+            // 
+            this.heightText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.heightText.Location = new System.Drawing.Point(12, 58);
+            this.heightText.Name = "heightText";
+            this.heightText.Size = new System.Drawing.Size(90, 26);
+            this.heightText.TabIndex = 10;
+            this.heightText.Text = "My Height";
+            // 
+            // weightText
+            // 
+            this.weightText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weightText.Location = new System.Drawing.Point(12, 102);
+            this.weightText.Name = "weightText";
+            this.weightText.Size = new System.Drawing.Size(90, 26);
+            this.weightText.TabIndex = 11;
+            this.weightText.Text = "My Weight";
+            // 
+            // conditionTextBox
+            // 
+            this.conditionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.conditionTextBox.Location = new System.Drawing.Point(15, 202);
+            this.conditionTextBox.Name = "conditionTextBox";
+            this.conditionTextBox.Size = new System.Drawing.Size(155, 30);
+            this.conditionTextBox.TabIndex = 12;
+            this.conditionTextBox.Text = "Your Condition";
+            // 
+            // conditionLabel
+            // 
+            this.conditionLabel.BackColor = System.Drawing.Color.White;
+            this.conditionLabel.Location = new System.Drawing.Point(176, 202);
+            this.conditionLabel.Name = "conditionLabel";
+            this.conditionLabel.Size = new System.Drawing.Size(116, 30);
+            this.conditionLabel.TabIndex = 13;
+            // 
             // BMICalculatorForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(304, 441);
+            this.Controls.Add(this.conditionLabel);
+            this.Controls.Add(this.conditionTextBox);
+            this.Controls.Add(this.weightText);
+            this.Controls.Add(this.heightText);
+            this.Controls.Add(this.calculateBMIButton);
+            this.Controls.Add(this.progressBar);
+            this.Controls.Add(this.resultLabel);
+            this.Controls.Add(this.weightUnitLabel);
+            this.Controls.Add(this.heightUnitLabel);
+            this.Controls.Add(this.MyWeightLabel);
+            this.Controls.Add(this.myHeightLabel);
+            this.Controls.Add(this.ImperialButton);
+            this.Controls.Add(this.metricButton);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -206,6 +355,7 @@
             this.Text = "BMI Calculator";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -223,6 +373,19 @@
         private System.Windows.Forms.Button eightButton;
         private System.Windows.Forms.Button sevenButton;
         private System.Windows.Forms.Button zeroButton;
+        private System.Windows.Forms.RadioButton metricButton;
+        private System.Windows.Forms.RadioButton ImperialButton;
+        private System.Windows.Forms.Label myHeightLabel;
+        private System.Windows.Forms.Label MyWeightLabel;
+        private System.Windows.Forms.TextBox heightUnitLabel;
+        private System.Windows.Forms.TextBox weightUnitLabel;
+        private System.Windows.Forms.Label resultLabel;
+        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Button calculateBMIButton;
+        private System.Windows.Forms.TextBox heightText;
+        private System.Windows.Forms.TextBox weightText;
+        private System.Windows.Forms.TextBox conditionTextBox;
+        private System.Windows.Forms.Label conditionLabel;
     }
 }
 
