@@ -14,6 +14,7 @@ namespace BMI_Calculator
     {
         public string outputString { get; set; }
         public float outputValue { get; set; }
+        public double Result { get; set; }
 
         public Label ActiveLabel { get; set; }
 
@@ -37,8 +38,7 @@ namespace BMI_Calculator
             if (numericResult)
             {
                 outputString += tag;
-                resultLabel.Text = outputString;
-                //ActiveLabel.Text = outputValue.ToString();
+                //resultLabel.Text = outputString;
                 ActiveLabel.Text = outputString;
             }
             else
@@ -48,13 +48,17 @@ namespace BMI_Calculator
                     case "backspace":
                         //var lastchar = outputString.Substring(outputString.Length - 1);
                         outputString = outputString.Remove(outputString.Length - 1);
-                        resultLabel.Text = outputString;
+                        ActiveLabel.Text = outputString;
                         break;
                     case "clear":
                         clearKeypad();
                         break;
                     case "calculate":
-
+                        BMIResult();
+                        //outputValue = x;
+                        //outputString = x.ToString();
+                        //resultLabel.Text = x.ToString();
+                        //resultLabel.Text = outputString;
                         break;
                 }
             }
@@ -75,6 +79,74 @@ namespace BMI_Calculator
             outputValue = 0;
             outputString = "";
             ActiveLabel = sender as Label;  
+        }
+
+        private void BMIResult()
+        {
+            //double result = 0;
+            var height = Convert.ToDouble(myHeightLabel.Text);
+            var weight = Convert.ToDouble(MyWeightLabel.Text);
+            if (metricButton.Checked == true)
+            {
+                Result = (weight / height/height)*10000;
+                resultLabel.Text = string.Format($"{Result:F1}").ToString();
+                //resultLabel.Text = Result.ToString();
+                DisplayCondition();
+            }
+            else if (ImperialButton.Checked == true)
+            {
+                Result = weight * 703 / (height * height);
+                resultLabel.Text = string.Format($"{Result:F1}").ToString();
+                DisplayCondition();
+            }
+            else
+            {
+                Result = 10;
+                resultLabel.Text = "Please select a unit type";
+            }
+
+        }
+
+        private void metricButton_CheckedChanged(object sender, EventArgs e)
+        {
+            heightUnitLabel.Text = "cm";
+            weightUnitLabel.Text = "kg";
+        }
+
+        private void ImperialButton_CheckedChanged(object sender, EventArgs e)
+        {
+            heightUnitLabel.Text = "in";
+            weightUnitLabel.Text = "lb";
+        }
+
+        private void DisplayCondition()
+        {
+            progressBar.Maximum = 4;
+            if (Result < 18.5)
+            {
+                conditionLabel.Text = "Underweight";
+                conditionLabel.ForeColor = Color.Bisque;
+                progressBar.Value += 1;
+            }
+            else if (Result >= 18.5 && Result <= 24.9)
+            {
+                conditionLabel.Text = "Normal";
+                conditionLabel.ForeColor = Color.Green;
+                progressBar.Value += 2;
+            }
+            else if (Result >= 25 && Result <= 29.9)
+            {
+                conditionLabel.Text = "Overweight";
+                conditionLabel.ForeColor = Color.Orange;
+                progressBar.Value += 3;
+                progressBar.ForeColor = Color.Orange;
+            }
+            else if (Result >= 30)
+            {
+                conditionLabel.Text = "Obese";
+                conditionLabel.ForeColor = Color.Red;
+                progressBar.Value += 4;
+            }
         }
     }
 }

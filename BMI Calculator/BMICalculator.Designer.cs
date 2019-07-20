@@ -245,6 +245,7 @@
             // metricButton
             // 
             this.metricButton.AutoSize = true;
+            this.metricButton.Checked = true;
             this.metricButton.Location = new System.Drawing.Point(15, 13);
             this.metricButton.Name = "metricButton";
             this.metricButton.Size = new System.Drawing.Size(106, 35);
@@ -252,6 +253,8 @@
             this.metricButton.TabStop = true;
             this.metricButton.Text = "Metric";
             this.metricButton.UseVisualStyleBackColor = true;
+            this.metricButton.CheckedChanged += new System.EventHandler(this.metricButton_CheckedChanged);
+            this.metricButton.Click += new System.EventHandler(this.metricButton_CheckedChanged);
             // 
             // ImperialButton
             // 
@@ -263,6 +266,8 @@
             this.ImperialButton.TabStop = true;
             this.ImperialButton.Text = "Imperial";
             this.ImperialButton.UseVisualStyleBackColor = true;
+            this.ImperialButton.CheckedChanged += new System.EventHandler(this.ImperialButton_CheckedChanged);
+            this.ImperialButton.Click += new System.EventHandler(this.ImperialButton_CheckedChanged);
             // 
             // myHeightLabel
             // 
@@ -332,6 +337,7 @@
             this.calculateBMIButton.Tag = "calculate";
             this.calculateBMIButton.Text = "Calculate BMI";
             this.calculateBMIButton.UseVisualStyleBackColor = false;
+            this.calculateBMIButton.Click += new System.EventHandler(this.keypadButton_click);
             // 
             // heightText
             // 
@@ -363,6 +369,7 @@
             // conditionLabel
             // 
             this.conditionLabel.BackColor = System.Drawing.Color.White;
+            this.conditionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.conditionLabel.Location = new System.Drawing.Point(176, 202);
             this.conditionLabel.Name = "conditionLabel";
             this.conditionLabel.Size = new System.Drawing.Size(116, 30);

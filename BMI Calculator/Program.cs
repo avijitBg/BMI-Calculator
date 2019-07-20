@@ -7,7 +7,7 @@ using System.Windows.Forms;
  * Description: COMP123 Assignment
  * Author: Avijit Bagchi
  * ID# 301007115
- * Version: 2.0 Keypad functionality added
+ * Version: 2.1 ResultLabel functionality added
  * Last modified: July 20, 2019
  */
 namespace BMI_Calculator
@@ -20,7 +20,7 @@ namespace BMI_Calculator
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
+            //Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new BMICalculatorForm());
         }
