@@ -25,6 +25,7 @@ namespace BMI_Calculator
         private void BMICalculatorForm_Load(object sender, EventArgs e)
         {
             clearKeypad();
+            //Program.splashForm.Close();
             ActiveLabel = null;
         }
 
@@ -80,8 +81,8 @@ namespace BMI_Calculator
             myHeightLabel.Text = "0";
             MyWeightLabel.Text = "0";
             conditionLabel.Text = "";
-            myHeightLabel.BackColor = Color.PaleGreen;
-            MyWeightLabel.BackColor = Color.PaleGreen;
+            myHeightLabel.BackColor = Color.WhiteSmoke;
+            MyWeightLabel.BackColor = Color.WhiteSmoke;
         }
 
         private void ActiveLabel_click(object sender, EventArgs e)
@@ -89,7 +90,7 @@ namespace BMI_Calculator
             outputValue = 0;
             outputString = "";
             ActiveLabel = sender as Label;
-            ActiveLabel.BackColor = Color.SeaGreen;
+            ActiveLabel.BackColor = Color.PaleGreen;
         }
 
         private void BMIResult()
@@ -104,14 +105,12 @@ namespace BMI_Calculator
                     resultLabel.Text = string.Format($"{Result:F1}").ToString();
                     //resultLabel.Text = Result.ToString();
                     DisplayCondition();
-                    //clearKeypad();
                 }
                 else if (ImperialButton.Checked == true)
                 {
                     Result = weight * 703 / (height * height);
                     resultLabel.Text = string.Format($"{Result:F1}").ToString();
                     DisplayCondition();
-                    clearKeypad();
                 }
             }
             else

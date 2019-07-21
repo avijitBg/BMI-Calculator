@@ -7,8 +7,8 @@ using System.Windows.Forms;
  * Description: COMP123 Assignment
  * Author: Avijit Bagchi
  * ID# 301007115
- * Version: 2.2 Validation completed
- * Last modified: July 20, 2019
+ * Version: 2.3 Splash screen added
+ * Last modified: July 21, 2019
  */
 namespace BMI_Calculator
 {
@@ -17,12 +17,17 @@ namespace BMI_Calculator
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        public static SplashForm splashForm;
+        public static BMICalculatorForm bmiCalculatorForm;
         [STAThread]
         static void Main()
         {
             //Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BMICalculatorForm());
+            //Application.Run(new BMICalculatorForm());
+            splashForm = new SplashForm();
+            bmiCalculatorForm = new BMICalculatorForm();
+            Application.Run(new SplashForm());
         }
     }
 }
