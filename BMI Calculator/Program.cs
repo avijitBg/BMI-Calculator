@@ -7,7 +7,7 @@ using System.Windows.Forms;
  * Description: COMP123 Assignment
  * Author: Avijit Bagchi
  * ID# 301007115
- * Version: 2.1 ResultLabel functionality added
+ * Version: 2.2 Validation completed
  * Last modified: July 20, 2019
  */
 namespace BMI_Calculator

@@ -271,48 +271,55 @@
             // 
             // myHeightLabel
             // 
-            this.myHeightLabel.BackColor = System.Drawing.Color.LightGray;
-            this.myHeightLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.myHeightLabel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.myHeightLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.myHeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.myHeightLabel.Location = new System.Drawing.Point(116, 56);
+            this.myHeightLabel.Location = new System.Drawing.Point(96, 56);
             this.myHeightLabel.Name = "myHeightLabel";
-            this.myHeightLabel.Size = new System.Drawing.Size(109, 31);
+            this.myHeightLabel.Size = new System.Drawing.Size(129, 31);
             this.myHeightLabel.TabIndex = 3;
             this.myHeightLabel.Tag = "height";
+            this.myHeightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.myHeightLabel.Click += new System.EventHandler(this.ActiveLabel_click);
             // 
             // MyWeightLabel
             // 
-            this.MyWeightLabel.BackColor = System.Drawing.Color.LightGray;
-            this.MyWeightLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MyWeightLabel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.MyWeightLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.MyWeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MyWeightLabel.Location = new System.Drawing.Point(116, 100);
+            this.MyWeightLabel.Location = new System.Drawing.Point(96, 100);
             this.MyWeightLabel.Name = "MyWeightLabel";
-            this.MyWeightLabel.Size = new System.Drawing.Size(109, 30);
+            this.MyWeightLabel.Size = new System.Drawing.Size(129, 30);
             this.MyWeightLabel.TabIndex = 4;
             this.MyWeightLabel.Tag = "weight";
+            this.MyWeightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.MyWeightLabel.Click += new System.EventHandler(this.ActiveLabel_click);
             // 
             // heightUnitLabel
             // 
+            this.heightUnitLabel.BackColor = System.Drawing.SystemColors.Control;
+            this.heightUnitLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.heightUnitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.heightUnitLabel.Location = new System.Drawing.Point(232, 54);
             this.heightUnitLabel.Name = "heightUnitLabel";
-            this.heightUnitLabel.Size = new System.Drawing.Size(63, 30);
+            this.heightUnitLabel.Size = new System.Drawing.Size(63, 23);
             this.heightUnitLabel.TabIndex = 5;
             // 
             // weightUnitLabel
             // 
+            this.weightUnitLabel.BackColor = System.Drawing.SystemColors.Control;
+            this.weightUnitLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.weightUnitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.weightUnitLabel.Location = new System.Drawing.Point(232, 100);
             this.weightUnitLabel.Name = "weightUnitLabel";
-            this.weightUnitLabel.Size = new System.Drawing.Size(63, 30);
+            this.weightUnitLabel.Size = new System.Drawing.Size(63, 23);
             this.weightUnitLabel.TabIndex = 6;
             // 
             // resultLabel
             // 
             this.resultLabel.BackColor = System.Drawing.Color.White;
-            this.resultLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.resultLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.resultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resultLabel.Location = new System.Drawing.Point(15, 133);
             this.resultLabel.Name = "resultLabel";
             this.resultLabel.Size = new System.Drawing.Size(280, 36);
@@ -341,21 +348,25 @@
             // 
             // heightText
             // 
-            this.heightText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.heightText.BackColor = System.Drawing.SystemColors.Control;
+            this.heightText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.heightText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.heightText.Location = new System.Drawing.Point(12, 58);
             this.heightText.Name = "heightText";
-            this.heightText.Size = new System.Drawing.Size(90, 26);
+            this.heightText.Size = new System.Drawing.Size(78, 23);
             this.heightText.TabIndex = 10;
-            this.heightText.Text = "My Height";
+            this.heightText.Text = "Height:";
             // 
             // weightText
             // 
-            this.weightText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weightText.BackColor = System.Drawing.SystemColors.Control;
+            this.weightText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.weightText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.weightText.Location = new System.Drawing.Point(12, 102);
             this.weightText.Name = "weightText";
-            this.weightText.Size = new System.Drawing.Size(90, 26);
+            this.weightText.Size = new System.Drawing.Size(78, 23);
             this.weightText.TabIndex = 11;
-            this.weightText.Text = "My Weight";
+            this.weightText.Text = "Weight:";
             // 
             // conditionTextBox
             // 
@@ -369,11 +380,13 @@
             // conditionLabel
             // 
             this.conditionLabel.BackColor = System.Drawing.Color.White;
+            this.conditionLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.conditionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.conditionLabel.Location = new System.Drawing.Point(176, 202);
             this.conditionLabel.Name = "conditionLabel";
             this.conditionLabel.Size = new System.Drawing.Size(116, 30);
             this.conditionLabel.TabIndex = 13;
+            this.conditionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BMICalculatorForm
             // 
