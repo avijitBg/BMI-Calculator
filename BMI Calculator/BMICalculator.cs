@@ -15,7 +15,8 @@ namespace BMI_Calculator
         public string outputString { get; set; }
         public float outputValue { get; set; }
         public double Result { get; set; }
-        public Label ActiveLabel { get; set; }
+        //public Label ActiveLabel { get; set; }
+        public TextBox ActiveTextBox { get; set; }
 
         public BMICalculatorForm()
         {
@@ -26,7 +27,10 @@ namespace BMI_Calculator
         {
             clearKeypad();
             //Program.splashForm.Close();
-            ActiveLabel = null;
+            //ActiveLabel = null;
+            ActiveTextBox = heightTextBox;
+            heightUnitLabel.Text = "cm";
+            weightUnitLabel.Text = "kg";
         }
 
         private void keypadButton_click(object sender, EventArgs e)
@@ -38,34 +42,24 @@ namespace BMI_Calculator
             if (numericResult)
             {
                 outputString += tag;
-                ActiveLabel.Text = outputString;
+                ActiveTextBox.Text = outputString;
             }
             else
             {
                 switch (tag)
                 {
                     case "backspace":
-                        //var lastchar = outputString.Substring(outputString.Length - 1);
                         outputString = outputString.Remove(outputString.Length - 1);
-                        ActiveLabel.Text = outputString;
+                        ActiveTextBox.Text = outputString;
                         break;
                     case "clear":
                         clearKeypad();
                         progressBar.Value = 0;
                         break;
                     case "calculate":
-                        //var height = Convert.ToDouble(myHeightLabel.Text);
-                        //var weight = Convert.ToDouble(MyWeightLabel.Text);
-                        //if (height !=0 && weight!=0)
-                        //{
-                            BMIResult();
-                        //}
-                        //else
-                        //{
-                        //    resultLabel.Text = "Please enter all values";
-                        //    resultLabel.ForeColor = Color.Red;
-                        //}
-                        //clearKeypad();
+                        progressBar.Value = 0;
+                        BMIResult();
+                        outputValue = 0;
                         break;
                 }
             }
@@ -73,50 +67,58 @@ namespace BMI_Calculator
 
         private void clearKeypad()
         {
-            resultLabel.Text = "0";
-            resultLabel.ForeColor = Color.Black;
+            resultTextBox.Text = "0";
+            resultTextBox.ForeColor = Color.Black;
             outputString = "";
             outputValue = 0;
             //ActiveLabel.Text = "0";
-            myHeightLabel.Text = "0";
-            MyWeightLabel.Text = "0";
+            heightTextBox.Text = "0";
+            weightTextBox.Text = "0";
             conditionLabel.Text = "";
-            myHeightLabel.BackColor = Color.WhiteSmoke;
-            MyWeightLabel.BackColor = Color.WhiteSmoke;
+            heightTextBox.BackColor = Color.WhiteSmoke;
+            heightTextBox.BackColor = Color.WhiteSmoke;
         }
 
-        private void ActiveLabel_click(object sender, EventArgs e)
+        private void ActiveTextBox_click(object sender, EventArgs e)
         {
             outputValue = 0;
             outputString = "";
-            ActiveLabel = sender as Label;
-            ActiveLabel.BackColor = Color.PaleGreen;
+            ActiveTextBox = sender as TextBox;
+            //ActiveTextBox.BackColor = Color.PaleGreen;
         }
 
         private void BMIResult()
         {
-            var height = Convert.ToDouble(myHeightLabel.Text);
-            var weight = Convert.ToDouble(MyWeightLabel.Text);
-            if(Height!=0 && weight != 0)
+            if(int.TryParse(heightTextBox.Text, out int myHeight) && int.TryParse(weightTextBox.Text, out int myWeight))
             {
-                if (metricButton.Checked == true)
+                var height = Convert.ToDouble(heightTextBox.Text);
+                var weight = Convert.ToDouble(weightTextBox.Text);
+                if (height != 0 && weight != 0)
                 {
-                    Result = (weight / height / height) * 10000;
-                    resultLabel.Text = string.Format($"{Result:F1}").ToString();
-                    //resultLabel.Text = Result.ToString();
-                    DisplayCondition();
+                    if (metricButton.Checked == true)
+                    {
+                        Result = (weight / height / height) * 10000;
+                        resultTextBox.Text = string.Format($"{Result:F1}").ToString();
+                        DisplayCondition();
+                    }
+                    else if (ImperialButton.Checked == true)
+                    {
+                        Result = weight * 703 / (height * height);
+                        resultTextBox.Text = string.Format($"{Result:F1}").ToString();
+                        DisplayCondition();
+                    }
                 }
-                else if (ImperialButton.Checked == true)
+
+                else
                 {
-                    Result = weight * 703 / (height * height);
-                    resultLabel.Text = string.Format($"{Result:F1}").ToString();
-                    DisplayCondition();
+                    resultTextBox.Text = "Please enter all values";
+                    resultTextBox.ForeColor = Color.Red;
                 }
             }
             else
             {
-                resultLabel.Text = "Please enter all values";
-                resultLabel.ForeColor = Color.Red;
+                resultTextBox.Text = "Please enter all values";
+                resultTextBox.ForeColor = Color.Red;
             }
         }
 
@@ -124,6 +126,7 @@ namespace BMI_Calculator
         {
             heightUnitLabel.Text = "cm";
             weightUnitLabel.Text = "kg";
+            heightUnitLabel.ForeColor = Color.Black;
         }
 
         private void ImperialButton_CheckedChanged(object sender, EventArgs e)
