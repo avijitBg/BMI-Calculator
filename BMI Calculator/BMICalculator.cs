@@ -49,8 +49,7 @@ namespace BMI_Calculator
                 switch (tag)
                 {
                     case "backspace":
-                        outputString = outputString.Remove(outputString.Length - 1);
-                        ActiveTextBox.Text = outputString;
+                        BackSpace();
                         break;
                     case "clear":
                         clearKeypad();
@@ -72,11 +71,10 @@ namespace BMI_Calculator
             outputString = "";
             outputValue = 0;
             //ActiveLabel.Text = "0";
-            heightTextBox.Text = "0";
-            weightTextBox.Text = "0";
-            conditionLabel.Text = "";
-            heightTextBox.BackColor = Color.WhiteSmoke;
-            heightTextBox.BackColor = Color.WhiteSmoke;
+            //heightTextBox.Text = "0";
+            //weightTextBox.Text = "0";
+            conditionTextBox.Text = "";
+            ActiveTextBox = heightTextBox;
         }
 
         private void ActiveTextBox_click(object sender, EventArgs e)
@@ -122,14 +120,27 @@ namespace BMI_Calculator
             }
         }
 
-        private void metricButton_CheckedChanged(object sender, EventArgs e)
+        private void BackSpace()
+        {
+            if (ActiveTextBox.Text.Length != 0)
+            {  
+                ActiveTextBox.Text = ActiveTextBox.Text.Remove(ActiveTextBox.Text.Length - 1);
+                //ActiveTextBox.Text = outputString;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void metricButton_Click(object sender, EventArgs e)
         {
             heightUnitLabel.Text = "cm";
             weightUnitLabel.Text = "kg";
             heightUnitLabel.ForeColor = Color.Black;
         }
 
-        private void ImperialButton_CheckedChanged(object sender, EventArgs e)
+        private void ImperialButton_Click(object sender, EventArgs e)
         {
             heightUnitLabel.Text = "in";
             weightUnitLabel.Text = "lb";
@@ -140,32 +151,37 @@ namespace BMI_Calculator
             progressBar.Maximum = 4;
             if (Result < 18.5)
             {
-                conditionLabel.Text = "Underweight";
-                conditionLabel.ForeColor = Color.SaddleBrown;
+                conditionTextBox.Text = "Underweight";
+                conditionTextBox.ForeColor = Color.SaddleBrown;
                 progressBar.Value += 1;
                 progressBar.ForeColor = Color.SaddleBrown;
             }
             else if (Result >= 18.5 && Result <= 24.9)
             {
-                conditionLabel.Text = "Normal";
-                conditionLabel.ForeColor = Color.Green;
+                conditionTextBox.Text = "Normal";
+                conditionTextBox.ForeColor = Color.Green;
                 progressBar.Value += 2;
                 progressBar.ForeColor = Color.Green;
             }
             else if (Result >= 25 && Result <= 29.9)
             {
-                conditionLabel.Text = "Overweight";
-                conditionLabel.ForeColor = Color.Orange;
+                conditionTextBox.Text = "Overweight";
+                conditionTextBox.ForeColor = Color.Orange;
                 progressBar.Value += 3;
                 progressBar.ForeColor = Color.Orange;
             }
             else if (Result >= 30)
             {
-                conditionLabel.Text = "Obese";
-                conditionLabel.ForeColor = Color.Red;
+                conditionTextBox.Text = "Obese";
+                conditionTextBox.ForeColor = Color.Red;
                 progressBar.Value += 4;
                 progressBar.ForeColor = Color.Red;
             }
+        }
+
+        private void BMICalculatorForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

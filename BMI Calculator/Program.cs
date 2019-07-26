@@ -7,8 +7,8 @@ using System.Windows.Forms;
  * Description: COMP123 Assignment
  * Author: Avijit Bagchi
  * ID# 301007115
- * Version: 2.4 Additional features and validation added
- * Last modified: July 22, 2019
+ * Version: 2.5 Exception handling completed
+ * Last modified: July 24, 2019
  */
 namespace BMI_Calculator
 {

@@ -49,11 +49,11 @@
             this.calculateBMIButton = new System.Windows.Forms.Button();
             this.heightText = new System.Windows.Forms.TextBox();
             this.weightText = new System.Windows.Forms.TextBox();
-            this.conditionTextBox = new System.Windows.Forms.TextBox();
-            this.conditionLabel = new System.Windows.Forms.Label();
             this.heightTextBox = new System.Windows.Forms.TextBox();
             this.weightTextBox = new System.Windows.Forms.TextBox();
             this.resultTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.conditionTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -253,8 +253,8 @@
             this.metricButton.TabStop = true;
             this.metricButton.Text = "Metric";
             this.metricButton.UseVisualStyleBackColor = true;
-            this.metricButton.CheckedChanged += new System.EventHandler(this.metricButton_CheckedChanged);
-            this.metricButton.Click += new System.EventHandler(this.metricButton_CheckedChanged);
+            this.metricButton.CheckedChanged += new System.EventHandler(this.metricButton_Click);
+            this.metricButton.Click += new System.EventHandler(this.metricButton_Click);
             // 
             // ImperialButton
             // 
@@ -266,8 +266,8 @@
             this.ImperialButton.TabStop = true;
             this.ImperialButton.Text = "Imperial";
             this.ImperialButton.UseVisualStyleBackColor = true;
-            this.ImperialButton.CheckedChanged += new System.EventHandler(this.ImperialButton_CheckedChanged);
-            this.ImperialButton.Click += new System.EventHandler(this.ImperialButton_CheckedChanged);
+            this.ImperialButton.CheckedChanged += new System.EventHandler(this.ImperialButton_Click);
+            this.ImperialButton.Click += new System.EventHandler(this.ImperialButton_Click);
             // 
             // heightUnitLabel
             // 
@@ -284,7 +284,7 @@
             this.weightUnitLabel.BackColor = System.Drawing.SystemColors.Control;
             this.weightUnitLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.weightUnitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weightUnitLabel.Location = new System.Drawing.Point(232, 100);
+            this.weightUnitLabel.Location = new System.Drawing.Point(232, 98);
             this.weightUnitLabel.Name = "weightUnitLabel";
             this.weightUnitLabel.Size = new System.Drawing.Size(63, 23);
             this.weightUnitLabel.TabIndex = 6;
@@ -325,31 +325,11 @@
             this.weightText.BackColor = System.Drawing.SystemColors.Control;
             this.weightText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.weightText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weightText.Location = new System.Drawing.Point(12, 102);
+            this.weightText.Location = new System.Drawing.Point(12, 98);
             this.weightText.Name = "weightText";
             this.weightText.Size = new System.Drawing.Size(78, 23);
             this.weightText.TabIndex = 11;
             this.weightText.Text = "Weight:";
-            // 
-            // conditionTextBox
-            // 
-            this.conditionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.conditionTextBox.Location = new System.Drawing.Point(15, 202);
-            this.conditionTextBox.Name = "conditionTextBox";
-            this.conditionTextBox.Size = new System.Drawing.Size(155, 30);
-            this.conditionTextBox.TabIndex = 12;
-            this.conditionTextBox.Text = "Your Condition";
-            // 
-            // conditionLabel
-            // 
-            this.conditionLabel.BackColor = System.Drawing.Color.White;
-            this.conditionLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.conditionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.conditionLabel.Location = new System.Drawing.Point(176, 202);
-            this.conditionLabel.Name = "conditionLabel";
-            this.conditionLabel.Size = new System.Drawing.Size(116, 30);
-            this.conditionLabel.TabIndex = 13;
-            this.conditionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // heightTextBox
             // 
@@ -373,21 +353,42 @@
             // 
             this.resultTextBox.Enabled = false;
             this.resultTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultTextBox.ForeColor = System.Drawing.Color.Black;
             this.resultTextBox.Location = new System.Drawing.Point(13, 132);
             this.resultTextBox.Name = "resultTextBox";
             this.resultTextBox.Size = new System.Drawing.Size(282, 35);
             this.resultTextBox.TabIndex = 16;
             this.resultTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 207);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(155, 25);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Your Condition";
+            // 
+            // conditionTextBox
+            // 
+            this.conditionTextBox.Enabled = false;
+            this.conditionTextBox.ForeColor = System.Drawing.Color.Black;
+            this.conditionTextBox.Location = new System.Drawing.Point(164, 201);
+            this.conditionTextBox.Multiline = true;
+            this.conditionTextBox.Name = "conditionTextBox";
+            this.conditionTextBox.Size = new System.Drawing.Size(128, 37);
+            this.conditionTextBox.TabIndex = 18;
+            // 
             // BMICalculatorForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(304, 441);
+            this.Controls.Add(this.conditionTextBox);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.resultTextBox);
             this.Controls.Add(this.weightTextBox);
             this.Controls.Add(this.heightTextBox);
-            this.Controls.Add(this.conditionLabel);
-            this.Controls.Add(this.conditionTextBox);
             this.Controls.Add(this.weightText);
             this.Controls.Add(this.heightText);
             this.Controls.Add(this.calculateBMIButton);
@@ -403,6 +404,7 @@
             this.Name = "BMICalculatorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BMI Calculator";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BMICalculatorForm_FormClosing);
             this.Load += new System.EventHandler(this.BMICalculatorForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -432,12 +434,12 @@
         private System.Windows.Forms.Button calculateBMIButton;
         private System.Windows.Forms.TextBox heightText;
         private System.Windows.Forms.TextBox weightText;
-        private System.Windows.Forms.TextBox conditionTextBox;
-        private System.Windows.Forms.Label conditionLabel;
         private System.Windows.Forms.Button backspaceButton;
         private System.Windows.Forms.TextBox heightTextBox;
         private System.Windows.Forms.TextBox weightTextBox;
         private System.Windows.Forms.TextBox resultTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox conditionTextBox;
     }
 }
 
